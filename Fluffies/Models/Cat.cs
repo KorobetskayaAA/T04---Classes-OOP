@@ -25,7 +25,6 @@ namespace Fluffies
   %%%%%%%%%
 ";
         const string AngryFace = @"|\         /|
-|\         /|
 | \_______/ |
 |   \   /   |
 | (!)   (!) |
