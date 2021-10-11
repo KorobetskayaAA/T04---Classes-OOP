@@ -65,5 +65,63 @@ namespace Fluffies
         {
             Age++;
         }
+
+        public virtual void DoNothing()
+        {
+            if (IsTired)
+            {
+                Sleep();
+            }
+            else
+            {
+                Hunger += 1;
+                Happiness -= 1;
+                UpdateState();
+            }
+        }
+
+        protected virtual void Sleep()
+        {
+            Tiredness = 0;
+            UpdateState();
+        }
+
+        public virtual void Eat()
+        {
+            if (IsVeryTired)
+            {
+                Sleep();
+            }
+            else if (!IsFull)
+            {
+                Hunger = 0;
+                Tiredness += 1;
+                Happiness += 1;
+                UpdateState();
+            }
+            else
+            {
+                DoNothing();
+            }
+        }
+
+        public virtual void DoPet()
+        {
+            if (IsVeryTired)
+            {
+                Sleep();
+            }
+            else if (!IsAngry)
+            {
+                Hunger += 1;
+                Tiredness += 1;
+                Happiness += 1;
+                UpdateState();
+            }
+            else
+            {
+                DoNothing();
+            }
+        }
     }
 }

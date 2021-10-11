@@ -4,33 +4,27 @@ using System.Text;
 
 namespace Fluffies
 {
-    class Cat : Pet
+    class Rabbit : Pet
     {
-        public Cat(string name) : base(name) { }
+        public Rabbit(string name) : base(name) { }
 
-
-        public void Play()
+        public override void DoNothing()
         {
             if (IsVeryTired)
             {
                 Sleep();
             }
-            else if (!IsHungry && !IsTired)
-            {
-                Hunger += 2;
-                Tiredness += 3;
-                Happiness += 3;
-                UpdateState();
-            }
             else
             {
-                DoNothing();
+                Hunger += 1;
+                Happiness -= 1;
+                UpdateState();
             }
         }
 
         protected override void Sleep()
         {
-            Hunger += 4;
+            Hunger += 3;
             base.Sleep();
         }
 
@@ -39,7 +33,7 @@ namespace Fluffies
             base.UpdateState();
             if (IsFull)
             {
-                Happiness += 1;
+                Happiness += 2;
             }
             else if (IsHungry)
             {
@@ -49,13 +43,9 @@ namespace Fluffies
             {
                 Happiness -= 2;
             }
-            if (IsTired)
+            if (IsVeryTired)
             {
                 Happiness -= 1;
-            }
-            else if (IsVeryTired)
-            {
-                Happiness -= 2;
             }
         }
     }
