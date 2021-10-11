@@ -8,6 +8,28 @@ namespace Fluffies
     {
         public Rabbit(string name) : base(name) { }
 
+        const string EarsLeft = @" /)__/)";
+        const string EarsRight = @"(\__(\";
+        const string NeutralFace = @"
+(=0.0=)
+(______)*
+";
+        const string SleepingFace = @"
+(=-.-=)
+(______)*
+";
+        readonly Random random = new Random();
+
+        public override string Face
+        {
+            get
+            {
+                string ears = random.NextDouble() >= 0.5 ? EarsLeft : EarsRight;
+                string face = IsSleeping ? SleepingFace : NeutralFace;
+                return ears + face;
+            }
+        }
+
         public override void DoNothing()
         {
             if (IsVeryTired)

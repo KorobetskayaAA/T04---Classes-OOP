@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fluffies
 {
-    class Pet
+    abstract class Pet
     {
         public Pet(string name)
         {
@@ -52,6 +52,7 @@ namespace Fluffies
                 else happiness = value;
             }
         }
+        public bool IsSleeping { get; set; } = false;
 
         public bool IsTired => Tiredness > 5;
         public bool IsVeryTired => Tiredness > 9;
@@ -64,6 +65,7 @@ namespace Fluffies
         public virtual void UpdateState()
         {
             Age++;
+            IsSleeping = false;
         }
 
         public virtual void DoNothing()
@@ -84,6 +86,7 @@ namespace Fluffies
         {
             Tiredness = 0;
             UpdateState();
+            IsSleeping = true;
         }
 
         public virtual void Eat()
@@ -123,5 +126,7 @@ namespace Fluffies
                 DoNothing();
             }
         }
+
+        public abstract string Face { get; }
     }
 }
