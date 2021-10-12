@@ -6,6 +6,9 @@ namespace Fluffies
 {
     abstract class Pet
     {
+        protected const int MaxAttribute = 10;
+        protected const int DefaultAttribute = 5;
+
         public Pet(string name)
         {
             Name = name;
@@ -13,7 +16,7 @@ namespace Fluffies
 
         public string Name { get; set; }
         public int Age { get; private set; } = 0;
-        double hunger = 5;
+        double hunger = DefaultAttribute;
         public double Hunger
         {
             get { return hunger; }
@@ -21,12 +24,12 @@ namespace Fluffies
             {
                 if (value < 0)
                     hunger = 0;
-                else if (value > 10)
-                    hunger = 10;
+                else if (value > MaxAttribute)
+                    hunger = MaxAttribute;
                 else hunger = value;
             }
         }
-        double tiredness = 5;
+        double tiredness = DefaultAttribute;
         public double Tiredness
         {
             get { return tiredness; }
@@ -34,12 +37,12 @@ namespace Fluffies
             {
                 if (value < 0)
                     tiredness = 0;
-                else if (value > 10)
-                    tiredness = 10;
+                else if (value > MaxAttribute)
+                    tiredness = MaxAttribute;
                 else tiredness = value;
             }
         }
-        double happiness = 5;
+        double happiness = DefaultAttribute;
         public double Happiness
         {
             get { return happiness; }
@@ -47,8 +50,8 @@ namespace Fluffies
             {
                 if (value < 0)
                     happiness = 0;
-                else if (value > 10)
-                    happiness = 10;
+                else if (value > MaxAttribute)
+                    happiness = MaxAttribute;
                 else happiness = value;
             }
         }
