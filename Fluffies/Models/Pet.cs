@@ -62,7 +62,7 @@ namespace Fluffies
         public bool IsAngry => Happiness < 3;
         public bool IsHappy => Happiness > 8;
 
-        public virtual void UpdateState()
+        protected virtual void UpdateState()
         {
             Age++;
             IsSleeping = false;

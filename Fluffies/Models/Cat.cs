@@ -86,7 +86,7 @@ namespace Fluffies
             base.Sleep();
         }
 
-        public override void UpdateState()
+        protected override void UpdateState()
         {
             base.UpdateState();
             if (IsFull)
